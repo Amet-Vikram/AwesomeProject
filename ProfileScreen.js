@@ -5,7 +5,7 @@ export const ProfileScreen = ({navigation, route}) => {
   return (
     <View style={styles.body}>
       <Text style={styles.textSmall}>
-        This is {route.params.name}'s profile. Her age is {route.params.age}
+        This is Jane's profile. Her age is 23
       </Text>
       <Image
         style={styles.image}
@@ -14,12 +14,12 @@ export const ProfileScreen = ({navigation, route}) => {
       <Pressable
         style={({pressed}) => [
           {
-            backgroundColor: pressed ? '#0f0' : 'white',
+            backgroundColor: pressed ? '#0f0' : '#ffff',
             margin: 30,
             padding: 10,
           },
         ]}
-        onPress={() => navigation.navigate('Profile Friends')}>
+        onPress={() => navigation.navigate('Profile2')}>
         <Text style={styles.textSmall}>Go to Janes Friends.</Text>
       </Pressable>
     </View>
