@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/BebasNeue-Regular.ttf",
+      "sha1": "8b3aaeb978f3cb5f575860774b50c332338563c1"
+    },
+    {
+      "path": "assets/fonts/Heebo-VariableFont_wght.ttf",
+      "sha1": "6678a4d137b413aa0bc4365a2c43f93329171b6d"
+    },
+    {
+      "path": "assets/fonts/Lora-VariableFont_wght.ttf",
+      "sha1": "4be204b856908cf7c4cf1a667a159fd6fe2ac54f"
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text, Button, Image, Pressable} from 'react-native';
 
 export const HomeScreen = ({navigation}) => {
+  console.log('Hello2');
   return (
     <View style={styles.body}>
       <Button
@@ -29,6 +30,7 @@ export const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   textSmall: {
+    fontFamily: 'Lora-VariableFont_wght',
     color: '#111111',
     fontSize: 24,
   },

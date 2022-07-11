@@ -1,11 +1,12 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen} from './Home';
-import {ProfileScreen} from './ProfileScreen';
-import {ProfileScreen2} from './ProfileScreen2';
+import {HomeScreen} from './screens/Home.js';
+import {ProfileScreen} from './screens/ProfileScreen';
+import {ProfileScreen2} from './screens/ProfileScreen2.js';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import GlobalStyles from './utils/GlobalStyles.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,15 +20,15 @@ function App() {
             if (route.name === 'Home') {
               iconName = 'anchor';
               size = focused ? 25 : 20;
-              color = focused ? '#2f4333' : '#f0113350';
+              color = focused ? '#2f4333' : '#f0113370';
             } else if (route.name === 'Profile') {
               iconName = 'bacteria';
               size = focused ? 25 : 20;
-              color = focused ? '#2f4333' : '#f0113350';
+              color = focused ? '#2f4333' : '#f0113370';
             } else if (route.name === 'Profile2') {
               iconName = 'camera';
               size = focused ? 25 : 20;
-              color = focused ? '#2f4333' : '#f0113350';
+              color = focused ? '#2f4333' : '#f0113370';
             }
             return <FontAwesome5 name={iconName} size={size} color={color} />;
           },
