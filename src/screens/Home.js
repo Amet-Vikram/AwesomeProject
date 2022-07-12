@@ -1,28 +1,72 @@
-import React from 'react';
-import {StyleSheet, View, Text, Button, Image, Pressable} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Image,
+  Pressable,
+  Alert,
+  TextInput,
+} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import GlobalStyles from '../utils/GlobalStyles';
+import CustomButton from '../utils/CustomButton';
 
 export const HomeScreen = ({navigation}) => {
-  console.log('Hello2');
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    try {
+      AsyncStorage.getItem('UserName').then(value => {
+        if (value != null) {
+          setName(value);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateData = async () => {
+    if (name.length === 0) {
+      Alert.alert('Warning!', "Name can't be left empty");
+    } else {
+      try {
+        await AsyncStorage.setItem('UserName', name);
+        Alert.alert('Success!', 'Updated Successfully!!');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
     <View style={styles.body}>
-      <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigation.navigate('Profile', {name: 'Jane', age: '20'})
-        }
+      <Text style={styles.textSmall}>Welcome {name} !</Text>
+      <TextInput
+        style={GlobalStyles.TextInput}
+        placeholder={'Enter Name'}
+        value={name}
+        onChangeText={value => setName(value)}
       />
+      <CustomButton onPressFunction={updateData} title={'Update'} />
       <Pressable
         style={({pressed}) => [
           {
-            backgroundColor: pressed ? '#0f0' : 'white',
+            backgroundColor: pressed ? '#0f0' : '#dddd',
             margin: 30,
             padding: 10,
           },
         ]}
         onPress={() =>
-          navigation.navigate('Profile', {name: 'Jane', age: '20'})
+          navigation.navigate('Profile2', {name: [{name}], age: '20'})
         }>
-        <Text style={styles.textSmall}>Go to Jane's profile.</Text>
+        <Text style={styles.textSmall}>Go to {name}'s friends.</Text>
       </Pressable>
     </View>
   );
@@ -30,6 +74,7 @@ export const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   textSmall: {
+    margin: 20,
     fontFamily: 'Lora-VariableFont_wght',
     color: '#111111',
     fontSize: 24,
