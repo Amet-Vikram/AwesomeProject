@@ -15,6 +15,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     fontSize: 15,
-    backgroundColor: '#113353',
+    backgroundColor: '#11333350',
   },
 });

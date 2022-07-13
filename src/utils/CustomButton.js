@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Heebo-VariableFont_wght',
   },
   button: {
-    width: 150,
+    margin: 10,
+    width: 200,
     height: 50,
     alignItems: 'center',
   },

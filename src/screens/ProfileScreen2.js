@@ -1,17 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Text, Button, Image, Pressable} from 'react-native';
 import GlobalStyles from '../utils/GlobalStyles';
 
 export const ProfileScreen2 = ({navigation, route}) => {
+  // const [name, setName] = useState('')
+  // const [age, setAge] = useState('')
   const {name, age} = route.params;
-  console.log('Hello');
+  // console.log(route.params);
   return (
     <View style={styles.body}>
-      <Text style={[styles.textSmall, GlobalStyles.CustomFont]}>
-        {JSON.parse(name)} has no friends. lmao. You are years old.
+      <Text style={[styles.textSmall]}>
+        {name} has no friends. lmao. Your age is {age}.
       </Text>
       <Text style={[styles.textSmall, GlobalStyles.CustomFont]}>
-        This is Dummy Text
+        Image fetched from Web:
       </Text>
       <Image
         style={styles.image}
@@ -23,6 +25,7 @@ export const ProfileScreen2 = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
   textSmall: {
+    margin: 20,
     color: '#111111',
     fontSize: 24,
   },

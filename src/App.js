@@ -5,44 +5,48 @@ import {HomeScreen} from './screens/Home.js';
 import {Login} from './screens/Login.js';
 import {ProfileScreen2} from './screens/ProfileScreen2.js';
 import GlobalStyles from './utils/GlobalStyles.js';
+import {Provider} from 'react-redux';
+import {Store} from './redux/store.js';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{
-          headerTitleAlign: 'center',
-          headerStyle: {
-            backgroundColor: '#eeb23f',
-          },
-          headerTintColor: '#ffffff',
-          headerTitleStyle: {
-            fontSize: 25,
-            fontWeight: 'bold',
-          },
-        }}>
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          // options={{header: () => null}}
-        />
-        <Stack.Screen
-          name="Profile2"
-          component={ProfileScreen2}
-          // options={{header: () => null}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={Store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Login"
+          screenOptions={{
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#eeb23f',
+            },
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {
+              fontSize: 25,
+              fontWeight: 'bold',
+            },
+          }}>
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            // options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="Profile2"
+            component={ProfileScreen2}
+            // options={{header: () => null}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
