@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SQLite from 'react-native-sqlite-storage';
 import {useSelector, useDispatch} from 'react-redux';
 import {setName, setAge} from '../redux/actions';
+import PushNotification from 'react-native-push-notification';
 
 const db = SQLite.openDatabase(
   {
@@ -28,6 +29,7 @@ export const Login = ({navigation}) => {
   useEffect(() => {
     createTable();
     getData();
+    createChannels();
   }, []);
 
   const createTable = () => {
@@ -37,6 +39,13 @@ export const Login = ({navigation}) => {
           'Users ' +
           '(ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Age INTEGER)',
       );
+    });
+  };
+
+  const createChannels = () => {
+    PushNotification.createChannel({
+      channelId: 'test-channel',
+      channelName: 'Test Channel',
     });
   };
 

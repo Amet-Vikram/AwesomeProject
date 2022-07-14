@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from './screens/Home.js';
 import {Login} from './screens/Login.js';
 import {ProfileScreen2} from './screens/ProfileScreen2.js';
+import {Map} from './screens/Maps.js';
 import GlobalStyles from './utils/GlobalStyles.js';
 import {Provider} from 'react-redux';
 import {Store} from './redux/store.js';
@@ -19,9 +20,9 @@ function App() {
           screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
-              backgroundColor: '#eeb23f',
+              backgroundColor: '#a3c2d1',
             },
-            headerTintColor: '#ffffff',
+            headerTintColor: '#2a2d2e',
             headerTitleStyle: {
               fontSize: 25,
               fontWeight: 'bold',
@@ -42,6 +43,11 @@ function App() {
           <Stack.Screen
             name="Profile2"
             component={ProfileScreen2}
+            // options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="Map"
+            component={Map}
             // options={{header: () => null}}
           />
         </Stack.Navigator>
