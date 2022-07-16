@@ -1,13 +1,23 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import MapView from 'react-native-maps';
 
 export const Map = ({route}) => {
-  const {location} = route.params.country;
+  const {city, country, latitude, longitude} = route.params;
 
   return (
     <View style={styles.body}>
-      <Text style={styles.textSmall}>Map</Text>
-      <Text style={styles.textSmall}>Country is : {location}</Text>
+      <Text style={styles.textSmall}>{country}</Text>
+      <Text style={styles.textSmall}>{city}</Text>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: parseInt(latitude),
+          longitude: parseInt(longitude),
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      />
     </View>
   );
 };
@@ -38,5 +48,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  map: {
+    flex: 1,
+    margin: 10,
+    width: '100%',
+    height: '100%',
   },
 });

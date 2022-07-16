@@ -3,6 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from './screens/Home.js';
 import {Login} from './screens/Login.js';
+import {Camera} from './screens/Camera.js';
+import {Camera2} from './screens/Camera2.js';
 import {ProfileScreen2} from './screens/ProfileScreen2.js';
 import {Map} from './screens/Maps.js';
 import GlobalStyles from './utils/GlobalStyles.js';
@@ -48,6 +50,16 @@ function App() {
           <Stack.Screen
             name="Map"
             component={Map}
+            // options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="Camera"
+            component={Camera}
+            // options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="Camera2"
+            component={Camera2}
             // options={{header: () => null}}
           />
         </Stack.Navigator>

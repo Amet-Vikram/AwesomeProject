@@ -43,7 +43,6 @@ export const HomeScreen = ({navigation}) => {
   // console.log(name, age);
   // const [name, setName] = useState('');
   // const [age, setAge] = useState('');
-
   useEffect(() => {
     getData();
     dispatch(getCities());
@@ -135,16 +134,26 @@ export const HomeScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.bodyMain}>
       <View style={styles.body}>
+        <CustomButton
+          title="Open Camera"
+          onPressFunction={() => {
+            console.log('Camera Pressed');
+            navigation.navigate('Camera2');
+          }}
+        />
         <FlatList
           horizontal
           data={cities}
           renderItem={({item}) => (
             <TouchableOpacity
               onPress={() => {
+                console.log(item);
                 handleNotification(item);
                 navigation.navigate('Map', {
                   country: item.country,
                   city: item.city,
+                  latitude: item.lat,
+                  longitude: item.lng,
                 });
               }}>
               <View style={styles.item}>
