@@ -134,37 +134,6 @@ export const HomeScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.bodyMain}>
       <View style={styles.body}>
-        <CustomButton
-          title="Open Camera"
-          onPressFunction={() => {
-            console.log('Camera Pressed');
-            navigation.navigate('Camera2');
-          }}
-        />
-        <FlatList
-          horizontal
-          data={cities}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => {
-                console.log(item);
-                handleNotification(item);
-                navigation.navigate('Map', {
-                  country: item.country,
-                  city: item.city,
-                  latitude: item.lat,
-                  longitude: item.lng,
-                });
-              }}>
-              <View style={styles.item}>
-                <Text style={styles.textSmall}>{item.country}</Text>
-                <Text style={styles.innerTextSmall}>{item.city}</Text>
-              </View>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-      <View style={styles.body}>
         <Text style={styles.textSmall}>Welcome {name} !</Text>
         <Text style={styles.textSmall}>You are {age} years old. !</Text>
         <TextInput
@@ -200,6 +169,37 @@ export const HomeScreen = ({navigation}) => {
           }>
           <Text style={styles.textSmall}>Go to {name}'s friends.</Text>
         </Pressable>
+      </View>
+      <View style={styles.body}>
+        <CustomButton
+          title="Open Camera"
+          onPressFunction={() => {
+            console.log('Camera Pressed');
+            navigation.navigate('Camera2');
+          }}
+        />
+        <FlatList
+          horizontal
+          data={cities}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => {
+                console.log(item);
+                handleNotification(item);
+                navigation.navigate('Map', {
+                  country: item.country,
+                  city: item.city,
+                  latitude: item.lat,
+                  longitude: item.lng,
+                });
+              }}>
+              <View style={styles.item}>
+                <Text style={styles.textSmall}>{item.country}</Text>
+                <Text style={styles.innerTextSmall}>{item.city}</Text>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </ScrollView>
   );

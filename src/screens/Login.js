@@ -97,6 +97,7 @@ export const Login = ({navigation}) => {
 
   return (
     <View style={styles.body}>
+      <Text> Hello</Text>
       <Image style={styles.image} source={require('../../assets/sync.png')} />
       <Text style={[GlobalStyles.CustomFont, styles.headingText]}>
         Login Page
